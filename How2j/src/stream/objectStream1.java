@@ -20,7 +20,7 @@ public class objectStream1 {
 	 File modelFile =new File("C:\\Users\\lcwei\\Desktop\\LeetCode\\sort.txt");
 		String modelContent = null;
 		try (FileReader fr = new FileReader(modelFile)) {
-			char cs[] = new char[(int) modelFile.length()];
+			char[] cs = new char[(int) modelFile.length()];
 			fr.read(cs);
 			modelContent = new String(cs);
 		} catch (IOException e) {
@@ -28,7 +28,6 @@ public class objectStream1 {
 			e.printStackTrace();
 		}
 
-		// 替换
 
 		String fileContent = modelContent.replaceAll("@class@", className);
 		fileContent = fileContent.replaceAll("@type@", type);
