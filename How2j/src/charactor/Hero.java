@@ -7,10 +7,10 @@ import property.MagicPotion;
 import java.io.Serializable;
 
 @SuppressWarnings("unused")
-public class Hero {
+public class Hero  implements LOL{
     public String name; 
         
-    protected float hp; //blood value
+    public float hp; //blood value
         
     float armor; 
         
@@ -18,7 +18,6 @@ public class Hero {
     static String copyright; 
   //** static represents class attribute , the others are obj attributes.
     public static int itemCapacity=8; //initialize when claim
-    
     
     // non-static inner class 
     //it is only meaningful when there is an object outside the class
@@ -102,8 +101,8 @@ public class Hero {
         System.out.println("initial an object , have to call construction method");
     }//this method can be neglected
     // the method has attribute ,can not be neglected//overload
-    public Hero(String heroname){ 
-        name = heroname;
+    public Hero(String name){ 
+        this.name = name;
     }
  // the method has two attribute ,can not be neglected//overload
 //    public Hero(String heroname,float herohp){ 

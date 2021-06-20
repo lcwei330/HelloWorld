@@ -1,5 +1,5 @@
 package property;
-
+import charactor.LOL;
 public class Item {
 	String name;
 	public int price;
@@ -10,6 +10,13 @@ public class Item {
     public void effect() {
         System.out.println("has effect after using");
     }
+    public  Item() {
+    }
+    
+    public  Item(String name) {
+        this.name=name;
+    }
+    
     public static void main(String[] args) {
         Item i = new Item();
         i.effect();

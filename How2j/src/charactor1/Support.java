@@ -1,4 +1,5 @@
 package charactor1;
+import charactor.Healer;
 import charactor.Hero;
  
 public class Support extends Hero implements Healer{

@@ -1,18 +1,26 @@
 package collection;
 
 import java.util.ArrayList;
+import java.util.List;
 
-@SuppressWarnings("unused")
+import charactor.Hero;
+import charactor.IStringBuffer;
+
+
 public class MyStringBuffer implements IStringBuffer {
 
+	@SuppressWarnings("rawtypes")
 	ArrayList value;
 
+
+	@SuppressWarnings("rawtypes")
 	public MyStringBuffer() {
 		value = new ArrayList();
 	}
-
+// w/ attribute method
+	@SuppressWarnings("unchecked")
 	public MyStringBuffer(String str) {
-		this();
+		this();// call method w/o attribute
 		if(null==str) 
 			return ;
 		char[] cs=str.toCharArray();
@@ -28,11 +36,11 @@ public class MyStringBuffer implements IStringBuffer {
 	}
 	@Override
 	public void append(char c) {
-		append(String.copyValueOf(c));
+		append(String.valueOf(c));
 	}
 	@Override
 	public void insert(int pos,char b) {
-		insert(pos,String.vauleOf(b));
+		insert(pos,String.valueOf(b));
 	}
 	public void delete(int start) {
 		delete(start,value.size());
@@ -52,20 +60,22 @@ public class MyStringBuffer implements IStringBuffer {
 			value.remove(start);
 		}
 	}
+	@SuppressWarnings("unchecked")
 	@Override
 	public void reverse() {
 		for (int i = 0; i < value.size()/2; i++) {
 			int len=value.size();
 		char temp=(char) value.get(i);
 		value.set(i, value.get(len-i-1));
-		value.set(value.get(len-i-1),temp);
+		value.set((int) value.get(len-i-1),temp);
 		
 		}
 	}
 	@Override
-	public void length() {
+	public int length() {
 		return value.size();
 		}
+	@SuppressWarnings("unchecked")
 	@Override
 	public void insert(int pos,String b) {
 		if (pos < 0)
@@ -84,13 +94,18 @@ public class MyStringBuffer implements IStringBuffer {
         }
 	}
 	public String toString() {
-		char[] value=new char[value.size()];
-		for (int i = 0; i < value.size(); i++) {
-			charValue[i]=(char)value.get(i);
-		}
-		return new String(charValue);
+		char[] charValue = new char[value.size()];
+        for (int i = 0; i < value.size(); i++) {
+            charValue[i] = (char) value.get(i);
+        }
+        return new String(charValue);
+ 
 	}
 	public static void main(String[] args) {
+		//List is an interface of class ArrayList need to import java.util.List;
+		List heros=new ArrayList();
+		heros.add(new Hero("Gailun"));
+		
 		 MyStringBuffer sb = new MyStringBuffer("there light");
 	        System.out.println(sb);
 	        sb.insert(0, "let ");
