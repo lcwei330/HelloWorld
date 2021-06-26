@@ -11,6 +11,7 @@ public class Hero  implements LOL{
     public String name; 
         
     public float hp; //blood value
+    public int damage;
         
     float armor; 
         
@@ -93,7 +94,15 @@ public class Hero  implements LOL{
     public void attack(Hero hero, int damage) {
         hero.hp = hero.hp - damage;
     }
+    public String toString() {
+        return "Hero [name=" + name + ", hp=" + hp + ", damage=" + damage + "]\r\n";
+    }
  
+    public Hero(String name, int hp, int damage) {
+        this.name = name;
+        this.hp = hp;
+        this.damage = damage;
+    }
      
     // method has the same name as class
     //if the method has no attribute, it can be neglected ,the following has no need to appear
@@ -132,6 +141,10 @@ public class Hero  implements LOL{
     float getHp(){
         return hp;
     }
+    public  String getName(){
+        return name;
+    }
+      
       
     void recovery(float blood){
         hp = hp+blood;
