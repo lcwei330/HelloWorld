@@ -10,7 +10,7 @@ public class ThreadPool {
 		threadPoolSize = 10;
 		synchronized (tasks) {
 			for (int i = 0; i < threadPoolSize; i++) {
-				new TaskConsumeThread("task consume Thread" + i).start();
+				new TaskConsumeThread("task consume Thread " + i).start();
 			}
 		}
 	}
